@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CollectorApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CollectorApp.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CollectorApp.class.getResource("collector-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Collector Application");
         stage.setScene(scene);
