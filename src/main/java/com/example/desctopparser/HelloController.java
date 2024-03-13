@@ -6,8 +6,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
+import org.xml.sax.SAXException;
 
 import java.io.File;
+import java.io.IOException;
 
 public class HelloController {
     @FXML
@@ -41,14 +43,14 @@ public class HelloController {
         }
 
         // Поиск XSD-файла в директории
-        File[] xsdFiles = directory.listFiles((dir, name) -> name.toLowerCase().endsWith(".xsd"));
+        File[] xsdFiles = directory.getAbsoluteFile().listFiles((dir, name) -> name.toLowerCase().endsWith(".xsd"));
         if (xsdFiles == null || xsdFiles.length == 0) {
             resultLabel.setText("No XSD files found in the specified directory.");
             return;
         }
 
         // Собираем список XML-файлов для обработки
-        File[] xmlFiles = directory.listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+        File[] xmlFiles = directory.listFiles((dir, name) -> name.toLowerCase().endsWith(".xml"));
         if (xmlFiles == null || xmlFiles.length == 0) {
             resultLabel.setText("No XML files found in the specified directory.");
             return;
@@ -56,7 +58,7 @@ public class HelloController {
 
         Task<Void> task = new Task<>() {
             @Override
-            protected Void call() {
+            protected Void call() throws IOException, SAXException {
                 int totalFiles = 0;
                 for (File xmlFile : xmlFiles) {
                     totalFiles += processFiles(xmlFile, xsdFiles[0]);
@@ -74,9 +76,12 @@ public class HelloController {
     }
 
 
-    private int processFiles(File xmlFile, File xsdFile) {
+    private int processFiles(File xmlFile, File xsdFile) throws IOException, SAXException {
         System.out.println(xsdFile.getName());
         System.out.println(xmlFile.getName());
+
+        Validation validator = new Validation();
+        System.out.println(validator.isValid(xsdFile, xmlFile));
         // temp mock
         return 0;
     }
