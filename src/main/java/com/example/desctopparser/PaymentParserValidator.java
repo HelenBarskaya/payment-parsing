@@ -11,20 +11,21 @@ import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
 
-public class Validation {
-    private Validator initValidator(File xsdFile) throws SAXException {
+public class PaymentParserValidator {
+    private final Validator validator;
+
+    public PaymentParserValidator(File xsdFile) throws SAXException {
         SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
         Source schemaFile = new StreamSource(xsdFile);
         Schema schema = factory.newSchema(schemaFile);
-        return schema.newValidator();
+        this.validator = schema.newValidator();
     }
 
-    public boolean isValid(File xsdFile, File xmlFile) throws IOException, SAXException {
-        Validator validator = initValidator(xsdFile);
+    public boolean isValid(File xmlFile) {
         try {
             validator.validate(new StreamSource(xmlFile));
             return true;
-        } catch (SAXException e) {
+        } catch (IOException | SAXException e) {
             return false;
         }
     }
