@@ -10,6 +10,7 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class Validation {
     private Validator initValidator(File xsdFile) throws SAXException {
@@ -19,12 +20,15 @@ public class Validation {
         return schema.newValidator();
     }
 
-    public boolean isValid(File xsdFile, File xmlFile) throws IOException, SAXException {
-        Validator validator = initValidator(xsdFile);
+    public boolean isValid(File xsdFile, List<File> xmlFile) throws IOException {
         try {
-            validator.validate(new StreamSource(xmlFile));
+            Validator validator = initValidator(xsdFile);
+            for (File file : xmlFile) {
+                validator.validate(new StreamSource(file));
+            }
             return true;
         } catch (SAXException e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

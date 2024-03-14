@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.vtb.ru/DBO20/IntegrationPlatform" targetNamespace="http://www.vtb.ru/DBO20/IntegrationPlatform" elementFormDefault="qualified">
+
+    <xsd:element name="PayDocRuReq">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="BSHead" type="ns2:BSHeadType"/>
+                <xsd:element name="BSRequest" type="ns2:BSRequestType"/>
+            </xsd:sequence>
+            <xsd:attribute name="Version" type="xsd:string" use="required"/>
+            <xsd:attribute name="ID" type="xsd:string" use="required"/>
+            <xsd:attribute name="DateTime" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="BSHeadType">
+        <xsd:sequence>
+            <xsd:element name="Client" type="ns2:ClientType"/>
+            <xsd:element name="Branch" type="ns2:BranchType"/>
+            <xsd:element name="Office" type="ns2:OfficeType"/>
+        </xsd:sequence>
+        <xsd:attribute name="RSys" type="xsd:string" use="required"/>
+        <xsd:attribute name="ASys" type="xsd:string" use="required"/>
+        <xsd:attribute name="route" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="ClientType">
+        <xsd:attribute name="RCustID" type="xsd:string" use="required"/>
+        <xsd:attribute name="ACustID" type="xsd:string" use="required"/>
+        <xsd:attribute name="INN" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="BranchType">
+        <xsd:attribute name="RBranchID" type="xsd:string" use="required"/>
+        <xsd:attribute name="ABranchID" type="xsd:string" use="required"/>
+        <xsd:attribute name="BIC" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="OfficeType">
+        <xsd:attribute name="Officecode" type="xsd:string" use="required"/>
+        <xsd:attribute name="Robotuser" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="BSRequestType">
+        <xsd:sequence>
+            <xsd:element name="AMOUNT" type="xsd:decimal"/>
+            <xsd:element name="CBCCODE" type="xsd:string"/>
+            <xsd:element name="CURRCODE" type="xsd:string"/>
+            <xsd:element name="CUSTID" type="xsd:string"/>
+            <xsd:element name="IP" type="xsd:string"/>
+            <xsd:element name="DOCDATEPARAM1" type="xsd:string"/>
+            <xsd:element name="DOCDATEPARAM2" type="xsd:string"/>
+            <xsd:element name="DOCDATEPARAM3" type="xsd:string"/>
+            <xsd:element name="DOCNUMPARAM1" type="xsd:string"/>
+            <xsd:element name="DOCNUMPARAM2" type="xsd:string"/>
+            <xsd:element name="GROUND" type="xsd:string"/>
+            <xsd:element name="OKATOCODE" type="xsd:string"/>
+            <xsd:element name="OPERTYPE" type="xsd:string"/>
+            <xsd:element name="PAYGRNDPARAM" type="xsd:string"/>
+            <xsd:element name="PAYTYPEPARAM" type="xsd:string"/>
+            <xsd:element name="PAYUNTIL" type="xsd:string"/>
+            <xsd:element name="PAYER" type="xsd:string"/>
+            <xsd:element name="PAYERACCOUNT" type="xsd:string"/>
+            <xsd:element name="PAYERBIC" type="xsd:string"/>
+            <xsd:element name="PAYERBANKNAME" type="xsd:string"/>
+            <xsd:element name="PAYERBANKTYPE" type="xsd:string"/>
+            <xsd:element name="PAYERCORRACCOUNT" type="xsd:string"/>
+            <xsd:element name="PAYERINN" type="xsd:string"/>
+            <xsd:element name="PAYERKPP" type="xsd:string"/>
+            <xsd:element name="PAYERPLACE" type="xsd:string"/>
+            <xsd:element name="PAYERPLACETYPE" type="xsd:string"/>
+            <xsd:element name="PAYERPROPERTYTYPE" type="xsd:string"/>
+            <xsd:element name="PAYMENTURGENT" type="xsd:string"/>
+            <xsd:element name="RECEIVER" type="xsd:string"/>
+            <xsd:element name="RECEIVERACCOUNT" type="xsd:string"/>
+            <xsd:element name="RECEIVERBIC" type="xsd:string"/>
+            <xsd:element name="RECEIVERBANKNAME" type="xsd:string"/>
+            <xsd:element name="RECEIVERBANKTYPE" type="xsd:string"/>
+            <xsd:element name="RECEIVERCORRACCOUNT" type="xsd:string"/>
+            <xsd:element name="RECEIVERINN" type="xsd:string"/>
+            <xsd:element name="RECEIVERKPP" type="xsd:string"/>
+            <xsd:element name="RECEIVERPLACE" type="xsd:string"/>
+            <xsd:element name="RECEIVERPLACETYPE" type="xsd:string"/>
+            <xsd:element name="RECEIVERPROPERTYTYPE" type="xsd:string"/>
+            <xsd:element name="SENDTYPE" type="xsd:string"/>
+            <xsd:element name="STAT1256" type="xsd:string"/>
+            <xsd:element name="TAXPERIODPARAM1" type="xsd:string"/>
+            <xsd:element name="TAXPERIODPARAM2" type="xsd:string"/>
+            <xsd:element name="TAXPERIODPARAM3" type="xsd:string"/>
+            <xsd:element name="DATETIMERECEIVE" type="xsd:string"/>
+            <xsd:element name="SERVICE" type="xsd:string"/>
+            <xsd:element name="CODEUIP" type="xsd:string"/>
+            <xsd:element name="SIGNUID1" type="xsd:string"/>
+            <xsd:element name="SIGNNAME1" type="xsd:string"/>
+            <xsd:element name="STATUS" type="xsd:string"/>
+            <xsd:element name="SENDNUMBER" type="xsd:string"/>
+            <xsd:element name="RECEIVENUMBER" type="xsd:string"/>
+            <xsd:element name="DOCREF" type="xsd:string"/>
+            <xsd:element name="DOCUMENTDATE" type="xsd:string"/>
+            <xsd:element name="DOCUMENTNUMBER" type="xsd:string"/>
+            <xsd:element name="DELIVERYTYPE" type="xsd:string"/>
+            <xsd:element name="CODEMESSAGE" type="xsd:string"/>
+            <xsd:element name="MESSAGEFORBANK" type="xsd:string"/>
+            <xsd:element name="DOCRECID" type="xsd:string"/>
+            <xsd:element name="CODEPURPOSE" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
