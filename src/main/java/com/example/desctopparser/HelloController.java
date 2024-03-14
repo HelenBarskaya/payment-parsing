@@ -64,7 +64,7 @@ public class HelloController {
                                     updateProgress(totalFiles.get(), xmlFiles.size());
                                 });
                         fileWriter.write("</DOCUMENTS>");
-                        System.out.println("Файлы успешно обработаны");
+                        updateMessage("Файлы успешно обработаны");
                     } catch (Exception e) {
                         updateMessage("При обработке файлов возникла ошибка");
                     }
