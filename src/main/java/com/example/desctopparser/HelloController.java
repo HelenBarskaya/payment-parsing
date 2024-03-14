@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -50,7 +52,7 @@ public class HelloController {
             AtomicInteger totalFiles = new AtomicInteger(0);
             Task<Void> task = new Task<>() {
                 @Override
-                protected Void call() {
+                protected Void call() throws IOException {
                     try (FileWriter fileWriter = new FileWriter(workingDirectory.getAbsolutePath() + "/Total.xml")) {
                         fileWriter.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<DOCUMENTS>\n");
                         xmlFiles
@@ -67,6 +69,8 @@ public class HelloController {
                         updateMessage("Файлы успешно обработаны");
                     } catch (Exception e) {
                         updateMessage("При обработке файлов возникла ошибка");
+                        updateProgress(0, xmlFiles.size());
+                        Files.delete(Path.of(workingDirectory.getAbsolutePath() + "/Total.xml"));
                     }
                     return null;
                 }
@@ -77,7 +81,7 @@ public class HelloController {
                         return true;
                     }
                     System.out.println(LocalDateTime.now() + " Файл: " + file.getName() + " не прошел проверку");
-                    return false;
+                    throw new RuntimeException();
                 }
 
                 private void writeFile(FileWriter fileWriter, File file) {
