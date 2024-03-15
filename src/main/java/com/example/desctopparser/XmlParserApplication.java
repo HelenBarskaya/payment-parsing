@@ -1,18 +1,17 @@
 package com.example.desctopparser;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class XmlParserApplication extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(XmlParserApplication.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 300);
-        stage.setTitle("Collector Application");
+        stage.setTitle("XmlParserApplication");
         stage.setScene(scene);
         stage.show();
     }

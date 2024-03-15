@@ -5,6 +5,7 @@ module com.example.desctopparser {
     requires javafx.controls;
     requires javafx.fxml;
 
+    requires org.slf4j;
     requires org.controlsfx.controls;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;

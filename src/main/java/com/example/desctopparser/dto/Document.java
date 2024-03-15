@@ -5,12 +5,10 @@ import lombok.Data;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Data
-public class BSRequest {
-
+public class Document {
     @XmlElement(name = "AMOUNT")
     private String amount;
 
@@ -25,6 +23,9 @@ public class BSRequest {
 
     @XmlElement(name = "IP")
     private String ip;
+
+    @XmlElement(name = "MAC")
+    private String mac;
 
     @XmlElement(name = "DOCDATEPARAM1")
     private String docdateparam1;
@@ -63,131 +64,134 @@ public class BSRequest {
     private String payer;
 
     @XmlElement(name = "PAYERACCOUNT")
-    private String payeraccount;
+    private String payerAccount;
 
     @XmlElement(name = "PAYERBIC")
-    private String payerbic;
+    private String payerBic;
 
     @XmlElement(name = "PAYERBANKNAME")
-    private String payerbankname;
+    private String payerBankName;
 
     @XmlElement(name = "PAYERBANKTYPE")
-    private String payerbanktype;
+    private String payerBankType;
 
     @XmlElement(name = "PAYERCORRACCOUNT")
-    private String payercorraccount;
+    private String payerCorrAccount;
 
     @XmlElement(name = "PAYERINN")
-    private String payerinn;
+    private String payerInn;
 
     @XmlElement(name = "PAYERKPP")
-    private String payerkpp;
+    private String payerKpp;
 
     @XmlElement(name = "PAYERPLACE")
-    private String payerplace;
+    private String payerPlace;
 
     @XmlElement(name = "PAYERPLACETYPE")
-    private String payerplacetype;
+    private String payerPlaceType;
 
     @XmlElement(name = "PAYERPROPERTYTYPE")
-    private String payerpropertytype;
+    private String payerPropertyType;
 
     @XmlElement(name = "PAYMENTURGENT")
-    private String paymenturgent;
+    private String paymentUrgent;
 
     @XmlElement(name = "RECEIVER")
     private String receiver;
 
     @XmlElement(name = "RECEIVERACCOUNT")
-    private String receiveraccount;
+    private String receiverAccount;
 
     @XmlElement(name = "RECEIVERBIC")
-    private String receiverbic;
+    private String receiverBic;
 
     @XmlElement(name = "RECEIVERBANKNAME")
-    private String receiverbankname;
+    private String receiverBankName;
 
     @XmlElement(name = "RECEIVERBANKTYPE")
-    private String receiverbanktype;
+    private String receiverBankType;
 
     @XmlElement(name = "RECEIVERCORRACCOUNT")
-    private String receivercorraccount;
+    private String receiverCorrAccount;
 
     @XmlElement(name = "RECEIVERINN")
-    private String receiverinn;
+    private String receiverInn;
 
     @XmlElement(name = "RECEIVERKPP")
-    private String receiverkpp;
+    private String receiverKpp;
 
     @XmlElement(name = "RECEIVERPLACE")
-    private String receiverplace;
+    private String receiverPlace;
 
     @XmlElement(name = "RECEIVERPLACETYPE")
-    private String receiverplacetype;
+    private String receiverPlaceType;
 
     @XmlElement(name = "RECEIVERPROPERTYTYPE")
-    private String receiverpropertytype;
+    private String receiverPropertyType;
 
     @XmlElement(name = "SENDTYPE")
-    private String sendtype;
+    private String sendType;
+
+    @XmlElement(name = "SIGNUID3")
+    private String signUid3;
+
+    @XmlElement(name = "SIGNNAME3")
+    private String signName3;
 
     @XmlElement(name = "STAT1256")
     private String stat1256;
 
     @XmlElement(name = "TAXPERIODPARAM1")
-    private String taxperiodparam1;
+    private String taxPeriodParam1;
 
     @XmlElement(name = "TAXPERIODPARAM2")
-    private String taxperiodparam2;
+    private String taxPeriodParam2;
 
     @XmlElement(name = "TAXPERIODPARAM3")
-    private String taxperiodparam3;
+    private String taxPeriodParam3;
 
     @XmlElement(name = "DATETIMERECEIVE")
-    private String datetimereceive;
+    private String dateTimeReceive;
 
     @XmlElement(name = "SERVICE")
     private String service;
 
     @XmlElement(name = "CODEUIP")
-    private String codeuip;
-
-    @XmlElement(name = "SIGNUID1")
-    private String signuid1;
-
-    @XmlElement(name = "SIGNNAME1")
-    private String signname1;
+    private String codeUip;
 
     @XmlElement(name = "STATUS")
     private String status;
 
     @XmlElement(name = "SENDNUMBER")
-    private String sendnumber;
+    private String sendNumber;
 
     @XmlElement(name = "RECEIVENUMBER")
-    private String receivenumber;
+    private String receiveNumber;
 
     @XmlElement(name = "DOCREF")
-    private String docref;
+    private String docRef;
 
     @XmlElement(name = "DOCUMENTDATE")
-    private String documentdate;
+    private String documentDate;
 
     @XmlElement(name = "DOCUMENTNUMBER")
-    private String documentnumber;
+    private String documentNumber;
 
     @XmlElement(name = "DELIVERYTYPE")
-    private String deliverytype;
+    private String deliveryType;
 
     @XmlElement(name = "CODEMESSAGE")
-    private String codemessage;
+    private String codeMessage;
 
     @XmlElement(name = "MESSAGEFORBANK")
-    private String messageforbank;
+    private String messageForBank;
 
     @XmlElement(name = "DOCRECID")
-    private String docrecid;
+    private String docRecId;
 
-    @XmlElement(name = "CODEPURPOSE")
-    private String codepurpose;
+    @XmlElement(name = "RESFIELD")
+    private String resField;
+
+    @XmlElement(name = "SIGNHASH")
+    private String signHash;
 }

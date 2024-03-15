@@ -9,7 +9,7 @@
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.desctopparser.HelloController">
+      fx:controller="com.example.desctopparser.XmlParserController">
     <HBox spacing="10">
         <Label text="Directory:"/>
         <TextField fx:id="directoryField" />
